@@ -1,5 +1,3 @@
-require 'timeout'
-
 module Anyplayer
   class Player
 

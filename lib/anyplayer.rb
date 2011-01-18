@@ -3,24 +3,22 @@ require "anyplayer/player"
 
 module Anyplayer
   PLAYERS = :itunes, :rhythmbox, :ituneswindows, :mpd, :xmms2, :amarok
-
-  LOADED_PLAYERS = {}
-
   for player in PLAYERS
     require "anyplayer/players/#{player}"
-    LOADED_PLAYERS[player] = const_get(player.to_s.capitalize).new
   end
 
   # Return the first music player that's launched
-  def self::launched
-    LOADED_PLAYERS.find { |key, player|
-      puts "Trying #{player.name}..."
+  def self::launched(verbose = false)
+    PLAYERS.each { |player|
+      player = const_get(player.to_s.capitalize).new
+      puts "Trying #{player.name}..." if verbose
+
       begin
-        Timeout::timeout(5) { player.launched? }
+        Timeout::timeout(5) { return player if player.launched? }
       rescue Timeout::Error
-        puts "Timed out"
-        nil
+        puts "Timed out" if verbose
       end
-    }[1]
+    }
+    nil
   end
 end
