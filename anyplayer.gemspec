@@ -12,8 +12,6 @@ Gem::Specification.new do |s|
   s.summary     = %q{Interact with the running music player}
   s.description = %q{Play/pause/skip songs in iTunes, Rythmbox, MPD, XMMS}
 
-  s.add_development_dependency "test/unit"
-
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
