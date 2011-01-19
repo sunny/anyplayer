@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+# -*- encoding: utf-8 -*-
+require 'anyplayer'
+
+player = Anyplayer::launched
+
+case ARGV.first
+  when "playpause" then player.playpause
+  when "next"      then player.next
+  when "prev"      then player.next
+  when "voldown"   then player.voldown
+  when "volup"     then player.volup
+  when "volume"    then puts player.volume
+  when "track"     then puts player.track
+  when "artist"    then puts player.artist
+  when "album"     then puts player.album
+  else
+    puts <<USAGE
+Usage: #{$0} [command]
+Where command is one of: playpause, next, prev, voldown, volup,
+volume, track, artist, album.
+USAGE
+    exit(1)
+end
