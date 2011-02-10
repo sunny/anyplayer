@@ -1,21 +1,37 @@
 Anyplayer
 =========
 
-Ruby library to interact with the running music player (iTunes, Rythmbox, MPD, XMMS).
+Interacts with the currently running music player. Supports iTunes OS X, iTunes Windows, Rythmbox, MPD & XMMS.
+
+Install
+-------
 
     $ gem install anyplayer
-    $ anyplayer track
-    Sunglasses at Night
-    $ anyplayer next
-    $ anyplayer track
-    Rock the Casbah
 
-As a library:
+Use
+---
+
+    $ anyplayer artist     # artist of the current track
+    New Order
+    $ anyplayer track      # name of the current track
+    Blue Monday
+    $ anyplayer album
+    Power, Corruption & Lies
+    $ anyplayer next       # changes track forward
+    $ anyplayer prev       #               backward
+    $ anyplayer playpause  # pauses if it is playing, plays if it's paused
+    $ anyplayer voldown    # put the volume somewhat up
+    $ anyplayer volup      #                         down
+    $ anyplayer volume     # prints the volume percentage
+    100
+
+As a Ruby library
+-----------------
 
     require 'anyplayer'
     player = Anyplayer::launched
-    player.name # => Rythmbox
-    player.track # => "Frontier Psychiatrist"
-    player.next
-    player.track # => "Ready For The Floor"
 
+    player.name # => Rythmbox
+    player.artist # => "The Avalanches"
+    player.track # => "Frontier Psychiatrist"
+    # …
