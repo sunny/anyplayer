@@ -6,10 +6,12 @@ module Anyplayer
 
     def prev
       @itunes.PreviousTrack()
+      super
     end
 
     def next
       @itunes.NextTrack()
+      super
     end
 
     def voldown

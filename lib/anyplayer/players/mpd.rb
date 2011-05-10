@@ -6,10 +6,12 @@ module Anyplayer
 
     def prev
       mpc 'prev'
+      super
     end
 
     def next
       mpc 'next'
+      super
     end
 
     def voldown

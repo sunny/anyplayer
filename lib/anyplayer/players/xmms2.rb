@@ -6,10 +6,12 @@ module Anyplayer
 
     def prev
       xmms2 'prev'
+      super
     end
 
     def next
       xmms2 'next'
+      super
     end
 
     def voldown

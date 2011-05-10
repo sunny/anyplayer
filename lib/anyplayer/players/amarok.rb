@@ -6,10 +6,12 @@ module Anyplayer
 
     def prev
       tell_to 'Prev'
+      super
     end
 
     def next
       tell_to 'Next'
+      super
     end
 
     def voldown

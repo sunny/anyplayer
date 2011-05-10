@@ -1,6 +1,10 @@
 module Anyplayer
   class Player
-    @votes = 0
+    DEFAULT_VOTES_TO_SKIP = 5
+
+    def initialize
+      @votes = 0
+    end
 
     # Guess the player name
     def name
@@ -8,25 +12,42 @@ module Anyplayer
     end
 
     # Method for voting to skip song
-    def vote(VOTES_TO_SKIP = 5)
+    def vote(votes_to_skip = DEFAULT_VOTES_TO_SKIP)
       @votes += 1
-      if @votes >= VOTES_TO_SKIP
+      if @votes >= votes_to_skip
         self.next
         @votes = 0
       end
     end
 
+    # Method to get current votes
+    def votes
+      @votes
+    end
+
+    # root next and prev methods reset votes
+    def next
+      reset_votes
+    end
+
+    def prev
+      reset_votes
+    end
+
     # Methods to override
     def launched?; false; end
     def playpause; end
-    def next; end
-    def prev; end
     def voldown; end
     def volup; end
     def volume; end
     def track; end
     def artist; end
     def album; end
+
+    private
+      def reset_votes
+        @votes = 0
+      end
 
   end
 end
