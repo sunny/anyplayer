@@ -6,6 +6,11 @@ module Anyplayer
       self.class.to_s.gsub(/^.*::/, '')
     end
 
+    # Method for voting to skip song
+    def vote
+      self.next
+    end
+
     # Methods to override
     def launched?; false; end
     def playpause; end

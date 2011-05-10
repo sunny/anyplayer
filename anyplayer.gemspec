@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.name        = "anyplayer"
   s.version     = Anyplayer::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Sunny Ripert"]
-  s.email       = ["sunny@sunfox.org"]
-  s.homepage    = "http://github.com/sunny/anyplayer"
+  s.authors     = ["Sunny Ripert", "Gordon Diggs"]
+  s.email       = ["sunny@sunfox.org", "gordon@gordondiggs.com"]
+  s.homepage    = "http://github.com/GordonDiggs/anyplayer"
   s.summary     = %q{Interact with the running music player}
   s.description = %q{Play/pause/skip songs in iTunes, Rythmbox, MPD, XMMS}
 
