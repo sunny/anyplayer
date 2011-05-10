@@ -24,6 +24,7 @@ Use
     $ anyplayer volup      #                         down
     $ anyplayer volume     # prints the volume percentage
     100
+    $ anyplayer vote       # votes to go to next song (default number of votes is 5)
 
 As a Ruby library
 -----------------
