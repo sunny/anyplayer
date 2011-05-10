@@ -44,4 +44,28 @@ class AnyplayerTest < Test::Unit::TestCase
     player.prev
     assert_equal player.votes, 0
   end
+
+  def test_custom_voting_quota
+    player = Anyplayer::launched
+    assert_not_nil player
+    assert_equal player.votes, 0
+
+    num_votes = 10
+
+    first_track = player.track
+
+    num_votes.times do |i|
+      player.vote(num_votes)
+
+      # votes should be 0 if we've voted enough times
+      if i == num_votes-1
+        assert_equal player.votes, 0
+      else
+        assert_equal player.votes, i+1
+      end
+    end
+
+    # make sure we actually changed tracks
+    assert_not_equal player.track, first_track
+  end
 end
