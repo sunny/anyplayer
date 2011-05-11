@@ -15,11 +15,13 @@ case ARGV.first
   when "artist"    then puts player.artist
   when "album"     then puts player.album
   when "vote"      then player.vote
+  when "name"      then puts player.name
+  when "launched"  then exit(player.launched? ? 0 : 1)
   else
     puts <<USAGE
 Usage: #{$0} [command]
 Where command is one of: playpause, next, prev, voldown, volup,
-volume, track, artist, album.
+volume, track, artist, album, vote, name, launched.
 USAGE
     exit(1)
 end

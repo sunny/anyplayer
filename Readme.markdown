@@ -25,6 +25,10 @@ Use
     $ anyplayer volume     # prints the volume percentage
     100
     $ anyplayer vote       # votes to go to next song (default number of votes is 5)
+    $ anyplayer name
+    iTunes
+    $ anyplayer launched && echo "a player is running" || echo "nothing running"
+    a player is running
 
 As a Ruby library
 -----------------
@@ -32,6 +36,7 @@ As a Ruby library
     require 'anyplayer'
     player = Anyplayer::launched
 
+    player.launched? # => true
     player.name # => Rythmbox
     player.artist # => "The Avalanches"
     player.track # => "Frontier Psychiatrist"
