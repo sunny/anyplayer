@@ -9,8 +9,8 @@ Install
 
     $ gem install anyplayer
 
-Use
----
+Use it in your terminal
+-----------------------
 
     $ anyplayer artist     # artist of the current track
     New Order
@@ -31,8 +31,8 @@ Use
     $ anyplayer launched && echo "a player is running" || echo "nothing running"
     a player is running
 
-As a Ruby library
------------------
+Or in Ruby
+----------
 
     require 'anyplayer'
     player = Anyplayer::launched
@@ -43,7 +43,9 @@ As a Ruby library
     player.track # => "Frontier Psychiatrist"
     # …
 
-As a Web Interface
------------------
+Or on a Web page
+----------------
 
-With [so-nice](https://github.com/sunny/so-nice/)
+With the [So Nice](https://github.com/sunny/so-nice/) interface:
+
+![So Nice Screenshot](https://github.com/sunny/so-nice/raw/gh-pages/screenshot.png)
