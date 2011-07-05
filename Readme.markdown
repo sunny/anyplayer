@@ -42,3 +42,8 @@ As a Ruby library
     player.artist # => "The Avalanches"
     player.track # => "Frontier Psychiatrist"
     # …
+
+As a Web Interface
+-----------------
+
+With [so-nice](https://github.com/sunny/so-nice/)
