@@ -1,7 +1,8 @@
 Anyplayer
 =========
 
-Interacts with the currently running music player. Supports iTunes OS X, iTunes Windows, Rythmbox, MPD & XMMS.
+Interacts with the currently running music player. Supports iTunes OS X, iTunes Windows,
+Rythmbox, MPD & XMMS2.
 
 Install
 -------

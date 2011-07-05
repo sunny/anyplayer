@@ -1,3 +1,18 @@
+# Default Player class that is inherrited by all players.
+#
+# All players should override these methods:
+#   launched? (return bool)
+#   next
+#   prev
+#   playpause
+#   track     (return string)
+#   artist    (return string)
+#   album     (return string)
+#   voldown
+#   volup
+#   volume    (return int)
+#   playing?  (return bool)
+#   paused?   (return bool)
 module Anyplayer
   class Player
     DEFAULT_VOTES_TO_SKIP = 5
@@ -6,26 +21,30 @@ module Anyplayer
       @votes = 0
     end
 
-    # Guess the player name
+    def launched?
+      false
+    end
+
+    # Player name is the classe's, feel free to override it
     def name
       self.class.to_s.gsub(/^.*::/, '')
     end
 
-    # Method for voting to skip song
+    # Vote to skip song
     def vote(votes_to_skip = DEFAULT_VOTES_TO_SKIP)
       @votes += 1
       if @votes >= votes_to_skip
         self.next
-        @votes = 0
+        reset_votes
       end
     end
 
-    # Method to get current votes
     def votes
       @votes
     end
 
-    # root next and prev methods reset votes
+    # Root next and prev reset the votes, so be sure to call super
+    # in children
     def next
       reset_votes
     end
@@ -33,16 +52,6 @@ module Anyplayer
     def prev
       reset_votes
     end
-
-    # Methods to override
-    def launched?; false; end
-    def playpause; end
-    def voldown; end
-    def volup; end
-    def volume; end
-    def track; end
-    def artist; end
-    def album; end
 
     private
       def reset_votes
