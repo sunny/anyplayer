@@ -27,8 +27,8 @@ module Anyplayer
     end
 
     def volume
-      #currently just the first (left?) channel
-      xmms2('server volume').split("\n").first.sub /([^0-9]*)/, ''
+      # currently just the first (left?) channel
+      xmms2('server volume').split("\n").first.sub(/([^0-9]*)/, '')
       $1
     end
 
@@ -44,6 +44,14 @@ module Anyplayer
       xmms2 "status -f '${album}'"
     end
 
+    def playing?
+      xmms2("status -f '${playback_status}'") == "Playing"
+    end
+
+    def paused?
+      xmms2("status -f '${playback_status}'") == "Paused"
+    end
+
     def launched?
       # xmms2 autolaunches the daemon, so this should always be true
       %x(xmms2 status 2> /dev/null)
@@ -56,7 +64,7 @@ module Anyplayer
 
     private
     def xmms2(command)
-      %x(xmms2 #{command}).split("\n").first
+      %x(xmms2 #{command}).split("\n").first.strip
     end
   end
 

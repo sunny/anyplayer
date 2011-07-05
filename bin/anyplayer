@@ -17,6 +17,8 @@ case ARGV.first
   when "vote"      then player.vote
   when "name"      then puts player.name
   when "launched"  then exit(player.launched? ? 0 : 1)
+  when "playing"   then exit(player.playing? ? 0 : 1)
+  when "paused"    then exit(player.playing? ? 0 : 1)
   else
     puts <<USAGE
 Usage: #{$0} [command]
