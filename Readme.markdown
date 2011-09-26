@@ -55,3 +55,15 @@ Or in a browser
 With the [So Nice](https://github.com/sunny/so-nice/) Web interface:
 
 ![So Nice Screenshot](https://github.com/sunny/so-nice/raw/gh-pages/screenshot.png)
+
+Development
+-----------
+
+Launch from source:
+
+    ruby -Ilib bin/anyplayer
+
+Install from source:
+
+    gem build anyplayer.gemspec
+    gem install anyplayer-*.gem
