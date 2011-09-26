@@ -4,6 +4,11 @@ require 'anyplayer'
 
 player = Anyplayer::launched
 
+if !player
+  puts "Error: no player connected."
+  exit 1
+end
+
 case ARGV.first
   when "playpause" then player.playpause
   when "next"      then player.next
@@ -22,8 +27,11 @@ case ARGV.first
   else
     puts <<USAGE
 Usage: #{$0} [command]
+
 Where command is one of: playpause, next, prev, voldown, volup,
 volume, track, artist, album, vote, name, launched.
+
+Player connected: #{player.name}.
 USAGE
     exit(1)
 end
