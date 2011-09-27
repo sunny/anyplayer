@@ -9,6 +9,14 @@ module Anyplayer
       @app.playpause
     end
 
+    def play
+      @app.play
+    end
+
+    def pause
+      @app.pause
+    end
+
     def prev
       @app.previous_track
       super

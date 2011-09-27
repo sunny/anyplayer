@@ -24,6 +24,8 @@ Power, Corruption & Lies
 $ anyplayer next       # changes track forward
 $ anyplayer prev       #               backward
 $ anyplayer playpause  # pauses if it is playing, plays if it's paused
+$ anyplayer play
+$ anyplayer pause
 $ anyplayer voldown    # put the volume somewhat up
 $ anyplayer volup      #                         down
 $ anyplayer volume     # prints the volume percentage

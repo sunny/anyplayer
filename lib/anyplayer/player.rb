@@ -4,6 +4,8 @@
 #   launched? (return bool)
 #   next
 #   prev
+#   play
+#   pause
 #   playpause
 #   track     (return string)
 #   artist    (return string)
@@ -28,6 +30,10 @@ module Anyplayer
     # Player name is the classe's, feel free to override it
     def name
       self.class.to_s.gsub(/^.*::/, '')
+    end
+
+    def playpause
+      paused? ? play : pause
     end
 
     # Vote to skip song

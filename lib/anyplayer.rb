@@ -2,7 +2,7 @@ require "timeout"
 require "anyplayer/player"
 
 module Anyplayer
-  PLAYERS = :itunes, :rhythmbox, :ituneswindows, :mpd, :xmms2, :amarok
+  PLAYERS = [:itunes, :rhythmbox, :ituneswindows, :mpd, :xmms2, :amarok]
   for player in PLAYERS
     require "anyplayer/players/#{player}"
   end

@@ -4,6 +4,14 @@ module Anyplayer
       mpc 'toggle'
     end
 
+    def play
+      mpc 'play'
+    end
+
+    def pause
+      mpc 'pause'
+    end
+
     def prev
       mpc 'prev'
       super

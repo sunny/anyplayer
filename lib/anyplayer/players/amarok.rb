@@ -4,6 +4,14 @@ module Anyplayer
       tell_to 'PlayPause'
     end
 
+    def play
+      tell_to 'Play'
+    end
+
+    def pause
+      tell_to 'Pause'
+    end
+
     def prev
       tell_to 'Prev'
       super
@@ -29,11 +37,11 @@ module Anyplayer
     def track
       get_metadata('title')
     end
-    
+
     def artist
       get_metadata('artist')
     end
-    
+
     def album
       get_metadata('album')
     end

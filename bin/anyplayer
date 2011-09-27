@@ -11,6 +11,8 @@ end
 
 case ARGV.first
   when "playpause" then player.playpause
+  when "play"      then player.play
+  when "pause"     then palyer.pause
   when "next"      then player.next
   when "prev"      then player.next
   when "voldown"   then player.voldown
@@ -28,7 +30,7 @@ case ARGV.first
     puts <<USAGE
 Usage: #{$0} [command]
 
-Where command is one of: playpause, next, prev, voldown, volup,
+Where command is one of: playpause, play, pause, next, prev, voldown, volup,
 volume, track, artist, album, vote, name, launched.
 
 Player connected: #{player.name}.

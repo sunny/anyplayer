@@ -4,6 +4,14 @@ module Anyplayer
       @itunes.PlayPause()
     end
 
+    def play
+      @itunes.Play()
+    end
+
+    def pause
+      @itunes.Pause()
+    end
+
     def prev
       @itunes.PreviousTrack()
       super

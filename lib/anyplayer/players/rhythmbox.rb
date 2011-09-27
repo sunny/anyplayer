@@ -4,6 +4,14 @@ module Anyplayer
       tell_to 'play-pause'
     end
 
+    def play
+      tell_to 'play'
+    end
+
+    def pause
+      tell_to 'pause'
+    end
+
     def prev
       tell_to 'previous'
       super
@@ -33,7 +41,7 @@ module Anyplayer
     def artist
       tell_to 'print-playing-format=%ta'
     end
-    
+
     def album
       tell_to 'print-playing-format=%at'
     end

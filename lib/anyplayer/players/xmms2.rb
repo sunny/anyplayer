@@ -4,6 +4,14 @@ module Anyplayer
       xmms2 'toggle'
     end
 
+    def play
+      xmms2 'play'
+    end
+
+    def pause
+      xmms2 'pause'
+    end
+
     def prev
       xmms2 'prev'
       super
@@ -68,4 +76,4 @@ module Anyplayer
     end
   end
 
-end 
+end
