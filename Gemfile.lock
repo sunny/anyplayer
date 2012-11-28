@@ -1,14 +1,18 @@
 PATH
   remote: .
   specs:
-    anyplayer (0.0.1)
+    anyplayer (0.0.2)
 
 GEM
   remote: http://rubygems.org/
   specs:
+    minitest (4.1.0)
+    rake (0.9.2.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   anyplayer!
+  minitest
+  rake
