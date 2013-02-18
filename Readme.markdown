@@ -42,7 +42,7 @@ Or in Ruby
 
 ```ruby
 require 'anyplayer'
-player = Anyplayer::launched
+player = Anyplayer::Selector.new.player
 
 player.launched? # => true
 player.name # => Rythmbox
@@ -58,18 +58,26 @@ With the [So Nice](https://github.com/sunny/so-nice/) Web interface:
 
 ![So Nice Screenshot](https://github.com/sunny/so-nice/raw/gh-pages/screenshot.png)
 
+
 Development
 -----------
 
-Launch from source:
+Depending on your configuration you may need to add `bundle exec` to the following commands.
 
-    ruby -Ilib bin/anyplayer
+Terminal binary from source:
 
-Test:
+```sh
+$ ruby -Ilib bin/anyplayer
+```
 
-    bundle exec rake test
+Tests:
+
+```sh
+$ rake test
+```
 
 Install from source:
 
-    gem build anyplayer.gemspec
-    gem install anyplayer-*.gem
+```sh
+$ rake install
+```
