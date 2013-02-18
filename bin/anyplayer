@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 require 'anyplayer'
 
 player = Anyplayer::launched
@@ -9,6 +9,7 @@ if !player
   exit 1
 end
 
+# Call it
 case ARGV.first
   when "playpause" then player.playpause
   when "play"      then player.play
