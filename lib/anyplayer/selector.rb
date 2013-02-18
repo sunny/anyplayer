@@ -1,4 +1,11 @@
 # The Selector is the tool that will find you the currently running player on your platform
+#
+# Example:
+#
+#   selector = Anyplayer::Selector.new
+#   player = selector.player
+#
+# Needs the PLAYERS constant to contain a list of players.
 class Anyplayer::Selector
   attr_accessor :verbose
   attr_reader :errors
@@ -10,11 +17,12 @@ class Anyplayer::Selector
 
   # Returns an instance of the first music player that's launched
   def player
-    players_for_this_platform.find { |player|
+    players_for_this_platform.each { |player|
       player_load(player) or next
       instance = player_class(player).new
-      player_launched(instance)
+      return instance if player_launched(instance)
     }
+    nil
   end
 
 
@@ -49,7 +57,7 @@ class Anyplayer::Selector
 
       seconds = 5
       begin
-        Timeout::timeout(seconds) { return player if player.launched? }
+        Timeout::timeout(seconds) { player.launched? }
       rescue Timeout::Error
         $stderr.puts "Timed out after #{seconds} seconds" if verbose
         false

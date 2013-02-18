@@ -65,6 +65,10 @@ Launch from source:
 
     ruby -Ilib bin/anyplayer
 
+Test:
+
+    bundle exec rake test
+
 Install from source:
 
     gem build anyplayer.gemspec
