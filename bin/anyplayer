@@ -1,13 +1,17 @@
 #!/usr/bin/env ruby
-# encoding: utf-8
+
 require 'anyplayer'
 
-player = Anyplayer::launched
-
-if !player
-  puts "Error: no player connected."
-  exit 1
+# Create a selector
+selector = Anyplayer::Selector.new
+if ARGV.first == "-v"
+  selector.verbose = true
+  ARGV.pop
 end
+
+# Find the current player
+player = selector.player
+abort "Error: no player connected.\n" + selector.errors.join("\n") if !player
 
 # Call it
 case ARGV.first
@@ -29,7 +33,7 @@ case ARGV.first
   when "paused"    then exit(player.playing? ? 0 : 1)
   else
     puts <<USAGE
-Usage: #{$0} [command]
+Usage: #{$0} [-v] [command]
 
 Where command is one of: playpause, play, pause, next, prev, voldown, volup,
 volume, track, artist, album, vote, name, launched.
