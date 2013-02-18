@@ -1,5 +1,3 @@
-# coding: utf-8
-
 begin
   require 'win32ole'
 rescue LoadError => e

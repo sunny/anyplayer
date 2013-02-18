@@ -1,38 +1,40 @@
 class Anyplayer::ItunesMac < Anyplayer::Player
   def playpause
-    tell_to 'playpause'
+    itunes 'playpause'
   end
 
   def prev
-    tell_to 'previous track'
+    itunes 'previous track'
+    super
   end
 
   def next
-    tell_to 'next track'
+    itunes 'next track'
+    super
   end
 
   def voldown
-    tell_to 'set sound volume to sound volume - 10'
+    itunes 'set sound volume to sound volume - 10'
   end
 
   def volup
-    tell_to 'set sound volume to sound volume + 10'
+    itunes 'set sound volume to sound volume + 10'
   end
 
   def volume
-    tell_to 'return sound volume'
+    itunes 'return sound volume'
   end
 
   def track
-    tell_to 'return name of current track'
+    itunes 'return name of current track'
   end
 
   def artist
-    tell_to 'return artist of current track'
+    itunes 'return artist of current track'
   end
 
   def album
-    tell_to 'return album of current track'
+    itunes 'return album of current track'
   end
 
   def launched?
@@ -45,7 +47,7 @@ class Anyplayer::ItunesMac < Anyplayer::Player
   end
 
   private
-    def tell_to(command)
+    def itunes(command)
       %x(osascript -e 'tell app "iTunes" to #{command}').rstrip
     end
 end

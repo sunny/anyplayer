@@ -1,63 +1,61 @@
-module Anyplayer
-  class Amarok < Player
-    def playpause
-      tell_to 'PlayPause'
-    end
+class Anyplayer::Amarok < Anyplayer::Player
+  def playpause
+    amarok 'PlayPause'
+  end
 
-    def play
-      tell_to 'Play'
-    end
+  def play
+    amarok 'Play'
+  end
 
-    def pause
-      tell_to 'Pause'
-    end
+  def pause
+    amarok 'Pause'
+  end
 
-    def prev
-      tell_to 'Prev'
-      super
-    end
+  def prev
+    amarok 'Prev'
+    super
+  end
 
-    def next
-      tell_to 'Next'
-      super
-    end
+  def next
+    amarok 'Next'
+    super
+  end
 
-    def voldown
-      tell_to 'VolumeDown 5'
-    end
+  def voldown
+    amarok 'VolumeDown 5'
+  end
 
-    def volup
-      tell_to 'VolumeUp 5'
-    end
+  def volup
+    amarok 'VolumeUp 5'
+  end
 
-    def volume
-      tell_to 'VolumeGet'
-    end
+  def volume
+    amarok 'VolumeGet'
+  end
 
-    def track
-      get_metadata('title')
-    end
+  def track
+    amarok_get_meta 'title'
+  end
 
-    def artist
-      get_metadata('artist')
-    end
+  def artist
+    amarok_get_meta 'artist'
+  end
 
-    def album
-      get_metadata('album')
-    end
+  def album
+    amarok_get_meta 'album'
+  end
 
-    def launched?
-      not %x(qdbus org.kde.amarok 2>&1).match(/does not exist|command not found/)
-    end
+  def launched?
+    not %x(qdbus org.kde.amarok 2>&1).match(/does not exist|command not found/)
+  end
 
-    private
-    def tell_to(command)
+  private
+    def amarok(command)
       %x(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.#{command}).rstrip
     end
 
-    def get_metadata(name)
-      tell_to('GetMetadata').match(/#{name}: (\S.*)/)[1] rescue nil
+    def amarok_get_meta(name)
+      amarok('GetMetadata').match(/#{name}: (\S.*)/)[1] rescue nil
     end
-  end
 end
 
