@@ -1,67 +1,51 @@
-begin
-  require 'appscript'
-rescue LoadError => e
-  raise LoadError.new("#{e.message} -- Please try: gem install rb-appscript")
-end
-
 class Anyplayer::ItunesMac < Anyplayer::Player
   def playpause
-    app.playpause
-  end
-
-  def play
-    app.play
-  end
-
-  def pause
-    app.pause
+    tell_to 'playpause'
   end
 
   def prev
-    app.previous_track
-    super
+    tell_to 'previous track'
   end
 
   def next
-    app.next_track
-    super
+    tell_to 'next track'
   end
 
   def voldown
-    app.sound_volume.set(volume + 10)
+    tell_to 'set sound volume to sound volume - 10'
   end
 
   def volup
-    app.sound_volume.set(volume + 10)
+    tell_to 'set sound volume to sound volume + 10'
   end
 
   def volume
-    app.sound_volume.get
+    tell_to 'return sound volume'
   end
 
   def track
-    app.current_track.name.get
+    tell_to 'return name of current track'
   end
 
   def artist
-    app.current_track.artist.get
+    tell_to 'return artist of current track'
   end
 
   def album
-    app.current_track.album.get
+    tell_to 'return album of current track'
   end
 
   def launched?
-    Appscript.app('System Events').processes.name.get.include?("iTunes") and app
+    nb = %x(osascript -e 'tell app "System Events" to count (every process whose name is "iTunes")' 2>/dev/null).rstrip
+    nb.match(/^\d+/) and nb.to_i > 0 ? true : false
   end
 
   def name
-    "iTunes"
+    "iTunes Mac"
   end
 
   private
-
-    def app
-      @app ||= Appscript.app('iTunes')
+    def tell_to(command)
+      %x(osascript -e 'tell app "iTunes" to #{command}').rstrip
     end
 end
