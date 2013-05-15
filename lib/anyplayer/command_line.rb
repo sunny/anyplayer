@@ -38,7 +38,7 @@ module Anyplayer::CommandLine
     when "paused"    then exit(player.playing? ? 0 : 1)
     else
       puts <<USAGE
-Usage: #{$0} [-v] [command]
+Usage: anyplayer [-v] [command]
 
 Where command is one of: playpause, play, pause, next, prev, voldown, volup,
 volume, track, artist, album, vote, name, launched.
