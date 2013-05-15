@@ -1,4 +1,12 @@
 class Anyplayer::ItunesMac < Anyplayer::Player
+  def play
+    itunes 'play'
+  end
+
+  def pause
+    itunes 'pause'
+  end
+
   def playpause
     itunes 'playpause'
   end
