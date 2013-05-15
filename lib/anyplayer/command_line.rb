@@ -10,6 +10,8 @@ module Anyplayer::CommandLine
     if argv.first == "-v"
       selector.verbose = true
       argv.pop
+
+      $stderr.puts "anyplayer v#{Anyplayer::VERSION}"
     end
 
     # Find the current player
