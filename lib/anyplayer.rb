@@ -12,7 +12,6 @@ module Anyplayer
   )
 
   def self.launched
-    $stderr.puts "Anyplayer.launched is deprecated: please initialize a new Selector and call player"
     Selector.new.player
   end
 end

@@ -3,9 +3,11 @@
 # Example:
 #
 #   selector = Anyplayer::Selector.new
+#   selector.verbose = true
 #   player = selector.player
 #
 # Needs the PLAYERS constant to contain a list of players.
+
 class Anyplayer::Selector
   attr_accessor :verbose
   attr_reader :errors
