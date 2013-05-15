@@ -1,10 +1,11 @@
 Anyplayer
 =========
 
-[![Gem Version](https://badge.fury.io/rb/anyplayer.png)](http://badge.fury.io/rb/anyplayer) [![Build Status](https://travis-ci.org/sunny/anyplayer.png)](https://travis-ci.org/sunny/anyplayer)
+[![Gem Version](https://badge.fury.io/rb/anyplayer.png)](http://badge.fury.io/rb/anyplayer)
+[![Build Status](https://travis-ci.org/sunny/anyplayer.png)](https://travis-ci.org/sunny/anyplayer)
 
-Interacts with the currently running music player. Supports iTunes OS X, iTunes Windows,
-Rythmbox, MPD & XMMS2.
+Interacts with the currently running music player. Supports iTunes Mac, iTunes Windows, MPD,
+Rythmbox, Spotify Mac and XMMS2.
 
 Install
 -------
