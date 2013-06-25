@@ -50,6 +50,12 @@ class Anyplayer::ItunesMac < Anyplayer::Player
     nb.match(/^\d+/) and nb.to_i > 0 ? true : false
   end
 
+  def playing?
+    playing = %x(osascript -e 'tell app "iTunes"' -e 'if player state is playing then' -e  'return 1' -e 'else' -e 'return 0' -e  'end if' -e  'end tell').rstrip
+    playing == "1"? true : false 
+    puts playing
+  end
+
   def name
     "iTunes Mac"
   end

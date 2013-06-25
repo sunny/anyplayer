@@ -54,6 +54,12 @@ class Anyplayer::SpotifyMac < Anyplayer::Player
     "Spotify Mac"
   end
 
+  def playing?
+    playing = %x(osascript -e 'tell app "spotify"' -e 'if player state is playing then' -e  'return 1' -e 'else' -e 'return 0' -e  'end if' -e  'end tell').rstrip
+    playing == "1"? true : false 
+    puts playing
+  end
+
   private
     def spotify(command)
       %x(osascript -e 'tell app "spotify" to #{command}').rstrip
