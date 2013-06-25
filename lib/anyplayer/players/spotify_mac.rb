@@ -45,7 +45,7 @@ class Anyplayer::SpotifyMac < Anyplayer::Player
     spotify 'return album of current track'
   end
 
-  def playing?    
+  def playing?
     playing = spotify 'return player state is playing'
     playing == "true"
   end

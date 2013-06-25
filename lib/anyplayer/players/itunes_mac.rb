@@ -44,10 +44,10 @@ class Anyplayer::ItunesMac < Anyplayer::Player
   def album
     itunes 'return album of current track'
   end
-  
+
   def playing?
     playing = itunes 'return player state is playing'
-    playing == "true" 
+    playing == "true"
   end
 
   def launched?
