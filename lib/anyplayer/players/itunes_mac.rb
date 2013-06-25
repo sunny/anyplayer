@@ -56,7 +56,6 @@ class Anyplayer::ItunesMac < Anyplayer::Player
     nb.match(/^\d+/) and nb.to_i > 0 ? true : false
   end
 
-
   def name
     "iTunes Mac"
   end
