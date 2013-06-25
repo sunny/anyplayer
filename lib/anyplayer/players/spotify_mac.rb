@@ -45,10 +45,9 @@ class Anyplayer::SpotifyMac < Anyplayer::Player
     spotify 'return album of current track'
   end
 
-  def playing?
-    playing = %x(osascript -e 'tell app "spotify"' -e 'if player state is playing then' -e  'return 1' -e 'else' -e 'return 0' -e  'end if' -e  'end tell').rstrip
-    playing == "1"? true : false 
-    puts playing
+  def playing?    
+    playing = spotify 'return player state is playing'
+    playing == "true"
   end
 
   def launched?
