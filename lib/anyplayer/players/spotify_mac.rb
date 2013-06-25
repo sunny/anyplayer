@@ -45,6 +45,11 @@ class Anyplayer::SpotifyMac < Anyplayer::Player
     spotify 'return album of current track'
   end
 
+  def playing?
+    playing = spotify 'return player state is playing'
+    playing == "true"
+  end
+
   def launched?
     nb = %x(osascript -e 'tell app "System Events" to count (every process whose name is "Spotify")' 2>/dev/null).rstrip
     nb.match(/^\d+/) and nb.to_i > 0 ? true : false
