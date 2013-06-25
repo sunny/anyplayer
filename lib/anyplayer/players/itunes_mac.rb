@@ -44,6 +44,11 @@ class Anyplayer::ItunesMac < Anyplayer::Player
   def album
     itunes 'return album of current track'
   end
+  
+  def playing?
+    playing = itunes 'return player state is playing'
+    playing == "true" 
+  end
 
   def launched?
     nb = %x(osascript -e 'tell app "System Events" to count (every process whose name is "iTunes")' 2>/dev/null).rstrip
