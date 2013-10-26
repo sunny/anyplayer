@@ -9,6 +9,7 @@ module Anyplayer
     itunes_mac
     itunes_windows
     spotify_mac
+    rdio_mac
   )
 
   def self.launched
