@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    anyplayer (1.0.0)
+    anyplayer (1.1.0)
 
 GEM
   remote: http://rubygems.org/

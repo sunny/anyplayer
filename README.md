@@ -5,7 +5,7 @@ Anyplayer
 [![Build Status](https://travis-ci.org/sunny/anyplayer.png)](https://travis-ci.org/sunny/anyplayer)
 
 Interacts with the currently running music player.
-Supports iTunes Mac, iTunes Windows, Spotify Mac, MPD, Rhythmbox, Amarok and XMMS2.
+Supports iTunes Mac, iTunes Windows, Spotify Mac, Rdio Mac, MPD, Rhythmbox, Amarok and XMMS2.
 
 Install
 -------

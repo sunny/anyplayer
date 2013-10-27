@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["sunny@sunfox.org", "gordon@gordondiggs.com"]
   s.homepage    = "http://github.com/sunny/anyplayer"
   s.summary     = %q{Interact with the running music player}
-  s.description = %q{Play/pause/skip songs in iTunes Mac, iTunes Windows, Spotify Mac, MPD, Rhythmbox, Amarok and XMMS2}
+  s.description = %q{Play/pause/skip songs in iTunes Mac, iTunes Windows, Spotify Mac, Rdio Mac, MPD, Rhythmbox, Amarok and XMMS2}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
