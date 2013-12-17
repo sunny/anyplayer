@@ -8,11 +8,6 @@ class MpdTest < MiniTest::Unit::TestCase
   def setup
     @mpd_instance_mock = flexmock("mpd")
     flexmock(MPD, "MPD", :new => @mpd_instance_mock)
-    @foo = "foobarbaz"
-  end
-
-  def test_has_instance_var
-    assert_equal @foo, "foobarbaz"
   end
 
   def test_uses_ruby_mpd_gem
