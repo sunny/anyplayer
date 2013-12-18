@@ -1,3 +1,4 @@
+# encoding: utf-8
 begin
   require 'ruby-mpd'
 rescue LoadError => e
@@ -12,7 +13,7 @@ class Anyplayer::Mpd < Anyplayer::Player
   end
 
   def playpause
-    mpc.paused? && 
+    mpc.paused? &&
       mpc.send_command(:play) ||
       mpc.send_command(:pause)
   end
