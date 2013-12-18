@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    anyplayer (1.1.0)
+    anyplayer (1.1.1)
       ruby-mpd (~> 0.3.0)
 
 GEM
