@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     anyplayer (1.1.0)
+      ruby-mpd (~> 0.3.0)
 
 GEM
   remote: http://rubygems.org/
@@ -9,6 +10,7 @@ GEM
     flexmock (0.9.0)
     minitest (4.1.0)
     rake (0.9.2.2)
+    ruby-mpd (0.3.0)
 
 PLATFORMS
   ruby
