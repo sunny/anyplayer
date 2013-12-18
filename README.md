@@ -65,22 +65,27 @@ With the [So Nice](https://github.com/sunny/so-nice/) Web interface:
 Development
 -----------
 
-Depending on your configuration you may need to add `bundle exec` to the following commands.
-
-Terminal binary from source:
+Use the `anyplayer` binary from source:
 
 ```sh
 $ ruby -Ilib bin/anyplayer
 ```
 
-Tests:
+Launch tests:
 
 ```sh
-$ rake test
+$ bundle exec rake test
 ```
 
 Install from source:
 
 ```sh
-$ rake install
+$ bundle exec rake install
 ```
+
+All contributions are welcome! Head to the [Github issues](https://github.com/sunny/anyplayer/issues) to report bugs, questions or code.
+
+License
+-------
+
+MIT
