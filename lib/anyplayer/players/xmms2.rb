@@ -36,32 +36,31 @@ class Anyplayer::Xmms2 < Anyplayer::Player
   def volume
     # currently just the first (left?) channel
     xmms2('server volume').split("\n").first.sub(/([^0-9]*)/, '')
-    $1
   end
 
   def track
-    xmms2 "status -f '${title}'"
+    xmms2 "current -f '${title}'"
   end
 
   def artist
-    xmms2 "status -f '${artist}'"
+    xmms2 "current -f '${artist}'"
   end
 
   def album
-    xmms2 "status -f '${album}'"
+    xmms2 "current -f '${album}'"
   end
 
   def playing?
-    xmms2("status -f '${playback_status}'") == "Playing"
+    xmms2("current -f '${playback_status}'") == "Playing"
   end
 
   def paused?
-    xmms2("status -f '${playback_status}'") == "Paused"
+    xmms2("current -f '${playback_status}'") == "Paused"
   end
 
   def launched?
     # xmms2 autolaunches the daemon, so this should always be true
-    %x(xmms2 status 2> /dev/null)
+    %x(xmms2 current 2> /dev/null)
     $? == 0
   end
 
@@ -71,7 +70,8 @@ class Anyplayer::Xmms2 < Anyplayer::Player
 
   private
     def xmms2(command)
-      %x(xmms2 #{command}).split("\n").first.strip
+      ret = %x(xmms2 #{command}).split("\n").first
+      ret ? ret.strip : ""
     end
 end
 
