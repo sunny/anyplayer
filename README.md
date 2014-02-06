@@ -65,22 +65,11 @@ With the [So Nice](https://github.com/sunny/so-nice/) Web interface:
 Development
 -----------
 
-Use the `anyplayer` binary from source:
-
 ```sh
-$ ruby -Ilib bin/anyplayer
-```
-
-Launch tests:
-
-```sh
-$ bundle exec rake test
-```
-
-Install from source:
-
-```sh
-$ bundle exec rake install
+$ ruby -Ilib bin/anyplayer  # Use the anyplayer command-line from source
+$ bundle exec rake test     # Launch tests
+$ bundle exec rake install  # Install from source
+$ bundle exec rake console  # Launch console
 ```
 
 All contributions are welcome! Head to the [Github issues](https://github.com/sunny/anyplayer/issues) to report bugs, questions or code.
