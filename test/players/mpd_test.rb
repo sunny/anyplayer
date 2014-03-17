@@ -2,7 +2,7 @@ require "test_helper"
 require "ruby-mpd"
 require "anyplayer/players/mpd"
 
-class MpdTest < MiniTest::Unit::TestCase
+class MpdTest < Minitest::Test
   include FlexMock::TestCase
 
   def setup

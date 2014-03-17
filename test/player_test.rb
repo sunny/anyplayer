@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PlayerTest < MiniTest::Unit::TestCase
+class PlayerTest < Minitest::Test
   include FlexMock::TestCase
 
   def setup

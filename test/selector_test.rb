@@ -1,6 +1,6 @@
 require "test_helper"
 
-class AnyplayerTest < MiniTest::Unit::TestCase
+class AnyplayerTest < Minitest::Test
   def test_player
     selector = Selector.new
     player = selector.player

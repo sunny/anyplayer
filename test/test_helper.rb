@@ -1,4 +1,3 @@
-require "minitest/unit"
 require "minitest/autorun"
 require "flexmock/test_unit"
 require "anyplayer"
