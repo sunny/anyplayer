@@ -19,7 +19,14 @@ module Anyplayer::CommandLine
     abort "Error: no player connected.\n" + selector.errors.join("\n") if !player
 
     # Call it
-    case argv.first
+    command(player, argv.first)
+  end
+
+
+  private
+
+  def command(player, command)
+    case command
     when "playpause" then player.playpause
     when "play"      then player.play
     when "pause"     then player.pause
@@ -47,7 +54,6 @@ Player connected: #{player.name}.
 USAGE
       exit(1)
     end
-
   end
 
 end
