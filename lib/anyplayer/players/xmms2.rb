@@ -22,20 +22,16 @@ class Anyplayer::Xmms2 < Anyplayer::Player
   end
 
   def voldown
-    current = volume.to_i
-    new_volume = (current < 11 ? 0 : current - 10)
-    xmms2 "server volume #{new_volume}"
+    set_volume volume - 10
   end
 
   def volup
-    current = volume.to_i
-    new_volume = (current > 89 ? 100 : current + 10)
-    xmms2 "server volume #{new_volume}"
+    set_volume volume + 10
   end
 
   def volume
     # currently just the first (left?) channel
-    xmms2('server volume').split("\n").first.sub(/([^0-9]*)/, '')
+    xmms2('server volume').split("\n").first.sub(/([^0-9]*)/, '').to_i
   end
 
   def track
@@ -68,10 +64,22 @@ class Anyplayer::Xmms2 < Anyplayer::Player
     ENV['XMMS_PATH'] || super
   end
 
+
   private
-    def xmms2(command)
-      ret = %x(xmms2 #{command}).split("\n").first
-      ret ? ret.strip : ""
+
+  def xmms2(command)
+    ret = %x(xmms2 #{command}).split("\n").first
+    ret ? ret.strip : ""
+  end
+
+  def set_volume(num)
+    num = if num < 0
+      0
+    elsif num > 100
+      100
     end
+
+    xmms2 "server volume #{num}"
+  end
 end
 
