@@ -18,7 +18,6 @@ Player connected: Fake Player.
     flexmock(Anyplayer::Selector).should_receive(:new).and_return(@selector)
   end
 
-
   def test_no_command
     flexmock(@player).should_receive(:name).once.and_return("Fake Player")
     flexmock($stderr).should_receive(:puts).once.with(USAGE)
@@ -32,6 +31,15 @@ Player connected: Fake Player.
     flexmock(Anyplayer::CommandLine).should_receive(:exit).once.with(1)
     Anyplayer::CommandLine.parse(%w(err))
   end
+
+  def test_verbose
+    # flexmock(@player).should_receive(:name).once.and_return("Foo")
+    flexmock(@player).should_receive(:play).once
+    flexmock(@selector).should_receive(:verbose=).once.with(true)
+    flexmock($stderr).should_receive(:puts).once.with(/^anyplayer v[0-9.]+$/)
+    Anyplayer::CommandLine.parse(%w(-v play))
+  end
+
 
   # Actions
 

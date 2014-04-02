@@ -28,7 +28,7 @@ module Anyplayer::CommandLine
     selector = Anyplayer::Selector.new
     if argv.first == "-v"
       selector.verbose = true
-      argv.pop
+      argv.shift
 
       $stderr.puts "anyplayer v#{Anyplayer::VERSION}"
     end
