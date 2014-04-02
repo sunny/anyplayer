@@ -4,9 +4,24 @@ require "anyplayer"
 module Anyplayer::CommandLine
   extend self
 
-  ACTIONS = %w(playpause play pause next prev voldown volup vote)
-  INFOS = %w(volume track artist album name)
-  BOOLEANS = %w(launched playing paused)
+  COMMANDS = %w(
+    playpause
+    play
+    pause
+    next
+    prev
+    voldown
+    volup
+    volume
+    track
+    artist
+    album
+    vote
+    name
+    launched
+    paused
+    playing
+  )
 
   def parse(argv)
     # Create a selector
@@ -22,31 +37,48 @@ module Anyplayer::CommandLine
     player = selector.player
     abort "Error: no player connected.\n" + selector.errors.join("\n") if !player
 
-    # Call it
-    command(player, argv.first)
+    # Call a command
+    if argv.empty?
+      usage(player)
+    else
+      command(player, argv.first)
+    end
   end
 
 
   private
 
+  # Call
   def command(player, command)
-    if ACTIONS.include?(command)
-      player.send(command)
-    elsif INFOS.include?(command)
-      puts player.send(command)
-    elsif BOOLEANS .include?(command)
-      exit(player.send("#{command}?") ? 0 : 1)
-    else
-      puts <<USAGE
-Usage: anyplayer [-v] [command]
+    response = call(player, command)
 
-Where command is one of: playpause, play, pause, next, prev, voldown, volup,
-volume, track, artist, album, vote, name, launched.
-
-Player connected: #{player.name}.
-USAGE
-      exit(1)
+    case response
+    when :undefined_command then usage(player)
+    when true then exit(0)
+    when false then exit(1)
+    when String, Numeric then puts response
     end
   end
 
+  # Call the method on the player
+  # Tries the boolean method as well
+  def call(player, command)
+    [command, "#{command}?"].each do |method|
+      method = method.to_sym
+      return player.send(method) if player.respond_to?(method)
+    end
+
+    :undefined_command
+  end
+
+  def usage(player)
+    $stderr.puts <<USAGE
+Usage: anyplayer [-v] [command]
+
+Where command is one of: #{COMMANDS.join(', ')}.
+
+Player connected: #{player.name}.
+USAGE
+    exit(1)
+  end
 end

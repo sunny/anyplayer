@@ -4,15 +4,36 @@ require "anyplayer/command_line"
 class CommandLineTest < Minitest::Test
   include FlexMock::TestCase
 
+  USAGE = "Usage: anyplayer [-v] [command]
+
+Where command is one of: playpause, play, pause, next, prev, voldown, volup, volume, track, artist, album, vote, name, launched, paused, playing.
+
+Player connected: Fake Player.
+"
+
   def setup
-    @player = flexmock()
-    @selector = flexmock()
+    @player = flexmock(:player)
+    @selector = flexmock(:selector)
     @selector.should_receive(:player).and_return(@player)
     flexmock(Anyplayer::Selector).should_receive(:new).and_return(@selector)
   end
 
 
-  # ACTIONS
+  def test_no_command
+    flexmock(@player).should_receive(:name).once.and_return("Fake Player")
+    flexmock($stderr).should_receive(:puts).once.with(USAGE)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit).once.with(1)
+    Anyplayer::CommandLine.parse(%w())
+  end
+
+  def test_wrong_command
+    flexmock(@player).should_receive(:name).once.and_return("Fake Player")
+    flexmock($stderr).should_receive(:puts).once.with(USAGE)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit).once.with(1)
+    Anyplayer::CommandLine.parse(%w(err))
+  end
+
+  # Actions
 
   def test_playpause
     flexmock(@player).should_receive(:playpause).once
@@ -54,9 +75,6 @@ class CommandLineTest < Minitest::Test
     Anyplayer::CommandLine.parse(%w(vote))
   end
 
-
-  # INFOS
-
   def test_volume
     flexmock(@player).should_receive(:volume).once.and_return(42)
     flexmock($stdout).should_receive(:puts).once.with(42)
@@ -88,15 +106,15 @@ class CommandLineTest < Minitest::Test
   end
 
 
-  # BOOLEANS
+  # Booleans
 
   def test_launched_true
-    flexmock(Anyplayer::CommandLine).should_receive(:exit).once#.with(1)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit)#.with(1)
     flexmock(@player).should_receive(:launched?).once.and_return(true)
     Anyplayer::CommandLine.parse(%w(launched))
   end
   def test_launched_false
-    flexmock(Anyplayer::CommandLine).should_receive(:exit).once#.with(0)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit)#.with(0)
     flexmock(@player).should_receive(:launched?).once.and_return(false)
     Anyplayer::CommandLine.parse(%w(launched))
   end
