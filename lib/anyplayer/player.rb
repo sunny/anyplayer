@@ -70,11 +70,12 @@ class Anyplayer::Player
     reset_votes
   end
 
+
   private
 
-    def reset_votes
-      @votes = 0
-    end
+  def reset_votes
+    @votes = 0
+  end
 
 end
 

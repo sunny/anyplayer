@@ -59,8 +59,10 @@ class Anyplayer::SpotifyMac < Anyplayer::Player
     "Spotify Mac"
   end
 
+
   private
-    def spotify(command)
-      %x(osascript -e 'tell app "spotify" to #{command}').rstrip
-    end
+
+  def spotify(command)
+    %x(osascript -e 'tell app "spotify" to #{command}').rstrip
+  end
 end

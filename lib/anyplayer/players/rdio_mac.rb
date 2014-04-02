@@ -59,8 +59,10 @@ class Anyplayer::RdioMac < Anyplayer::Player
     "Rdio Mac"
   end
 
+
   private
-    def rdio(command)
-      %x(osascript -e 'tell app "rdio" to #{command}').rstrip
-    end
+
+  def rdio(command)
+    %x(osascript -e 'tell app "rdio" to #{command}').rstrip
+  end
 end

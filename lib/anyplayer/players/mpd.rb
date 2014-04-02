@@ -70,7 +70,9 @@ class Anyplayer::Mpd < Anyplayer::Player
     ENV['MPD_HOST'] || super
   end
 
+
   private
+
   def connect
     @mpc ||= MPD.new
     @mpc.connect

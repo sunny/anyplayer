@@ -50,8 +50,9 @@ class Anyplayer::Rhythmbox < Anyplayer::Player
   end
 
   private
-    def rhythmbox(command)
-      %x(rhythmbox-client --no-start --#{command}).rstrip
-    end
+
+  def rhythmbox(command)
+    %x(rhythmbox-client --no-start --#{command}).rstrip
+  end
 end
 

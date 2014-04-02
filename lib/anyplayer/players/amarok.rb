@@ -49,13 +49,15 @@ class Anyplayer::Amarok < Anyplayer::Player
     not %x(qdbus org.kde.amarok 2>&1).match(/does not exist|command not found/)
   end
 
-  private
-    def amarok(command)
-      %x(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.#{command}).rstrip
-    end
 
-    def amarok_get_meta(name)
-      amarok('GetMetadata').match(/#{name}: (\S.*)/)[1] rescue nil
-    end
+  private
+
+  def amarok(command)
+    %x(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.#{command}).rstrip
+  end
+
+  def amarok_get_meta(name)
+    amarok('GetMetadata').match(/#{name}: (\S.*)/)[1] rescue nil
+  end
 end
 

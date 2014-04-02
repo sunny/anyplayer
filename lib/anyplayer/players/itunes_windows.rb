@@ -59,10 +59,11 @@ class Anyplayer::ItunesWindows < Anyplayer::Player
     "iTunes Windows"
   end
 
+
   private
 
-    def itunes
-      itunes ||= WIN32OLE.new("iTunes.Application")
-    end
+  def itunes
+    itunes ||= WIN32OLE.new("iTunes.Application")
+  end
 end
 

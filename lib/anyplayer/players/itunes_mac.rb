@@ -60,7 +60,8 @@ class Anyplayer::ItunesMac < Anyplayer::Player
   end
 
   private
-    def itunes(command)
-      %x(osascript -e 'tell app "iTunes" to #{command}').rstrip
-    end
+
+  def itunes(command)
+    %x(osascript -e 'tell app "iTunes" to #{command}').rstrip
+  end
 end

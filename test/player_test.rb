@@ -82,5 +82,4 @@ class PlayerTest < Minitest::Test
     end
   end
 
-
 end
