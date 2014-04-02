@@ -8,6 +8,18 @@ class PlayerTest < Minitest::Test
   end
 
 
+  # Default name
+
+  def test_default_name
+    assert_equal "Noplayer", @player.name
+  end
+
+  def test_default_name_should_remove_namespace
+    flexmock(@player).should_receive(:class).and_return("Foo::Bar")
+    assert_equal "Bar", @player.name
+  end
+
+
   # Default paused?
 
   def test_paused_is_false_if_not_playing
