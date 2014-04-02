@@ -34,6 +34,11 @@ class Anyplayer::Player
     self.class.to_s.gsub(/^.*::/, '')
   end
 
+  # Default paused is not playing
+  def paused?
+    !playing?
+  end
+
   # Tells the player to toggle the pause state
   def playpause
     paused? ? play : pause

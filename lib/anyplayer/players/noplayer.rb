@@ -1,5 +1,6 @@
 class Anyplayer::Noplayer < Anyplayer::Player
-  def playpause
+  def playing?
+    true
   end
 
   def play
