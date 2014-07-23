@@ -62,8 +62,12 @@ With the [So Nice](https://github.com/sunny/so-nice/) Web interface:
 ![So Nice Screenshot](https://github.com/sunny/so-nice/raw/gh-pages/screenshot.png)
 
 
-Development
+Contribute!
 -----------
+
+All contributions are welcome! Head to the [Github issues](https://github.com/sunny/anyplayer/issues) to report bugs, questions or code. Also, check out `CONTRIBUTING.md`.
+
+Here a few useful commands while developping:
 
 ```sh
 $ ruby -Ilib bin/anyplayer  # Use the anyplayer command-line from source
@@ -72,7 +76,6 @@ $ bundle exec rake install  # Install from source
 $ bundle exec rake console  # Launch console
 ```
 
-All contributions are welcome! Head to the [Github issues](https://github.com/sunny/anyplayer/issues) to report bugs, questions or code.
 
 License
 -------
