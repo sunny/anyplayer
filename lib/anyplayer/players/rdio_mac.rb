@@ -51,8 +51,9 @@ class Anyplayer::RdioMac < Anyplayer::Player
   end
 
   def launched?
-    nb = %x(osascript -e 'tell app "System Events" to count (every process whose name is "rdio")' 2>/dev/null).rstrip
-    nb.match(/^\d+/) and nb.to_i > 0 ? true : false
+    command = 'tell app "System Events" to count (every process whose name is "rdio")'
+    nb = %x(osascript -e '#{command}' 2>/dev/null).rstrip
+    nb.match(/^\d+/) && nb.to_i > 0
   end
 
   def name
