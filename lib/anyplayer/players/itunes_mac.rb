@@ -51,8 +51,7 @@ class Anyplayer::ItunesMac < Anyplayer::Player
   end
 
   def launched?
-    nb = %x(osascript -e 'tell app "System Events" to count (every process whose name is "iTunes")' 2>/dev/null).rstrip
-    nb.match(/^\d+/) and nb.to_i > 0 ? true : false
+    %x(osascript -e 'app "iTunes" is running').rstrip == "true"
   end
 
   def name

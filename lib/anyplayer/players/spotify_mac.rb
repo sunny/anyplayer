@@ -51,9 +51,7 @@ class Anyplayer::SpotifyMac < Anyplayer::Player
   end
 
   def launched?
-    command = 'tell app "System Events" to count (every process whose name is "Spotify")'
-    nb = %x(osascript -e '#{command}' 2>/dev/null).rstrip
-    nb.match(/^\d+/) && nb.to_i > 0
+    %x(osascript -e 'app "Spotify" is running').rstrip == "true"
   end
 
   def name
@@ -64,6 +62,6 @@ class Anyplayer::SpotifyMac < Anyplayer::Player
   private
 
   def spotify(command)
-    %x(osascript -e 'tell app "spotify" to #{command}').rstrip
+    %x(osascript -e 'tell app "Spotify" to #{command}').rstrip
   end
 end
