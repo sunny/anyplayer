@@ -1,4 +1,4 @@
-# Default Player class that is inherrited by all players.
+# Default Player class that is inherited by all players.
 #
 # All players should override these methods:
 #   launched? (return bool)
