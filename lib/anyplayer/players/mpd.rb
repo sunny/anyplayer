@@ -2,9 +2,8 @@
 begin
   require 'ruby-mpd'
 rescue LoadError => e
-  raise LoadError.new "#{e.message} — please install ruby-mpd gem"
+  raise LoadError.new "#{e.message} — Please install the ruby-mpd gem"
 end
-
 
 class Anyplayer::Mpd < Anyplayer::Player
   def initialize

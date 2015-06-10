@@ -46,7 +46,13 @@ class Anyplayer::Amarok < Anyplayer::Player
   end
 
   def launched?
-    not %x(qdbus org.kde.amarok 2>&1).match(/does not exist|command not found|cannot find the path specified/)
+    not %x(qdbus org.kde.amarok 2>&1).match(
+      /does not exist|not found|cannot find the path specified/
+    )
+  end
+
+  def platforms
+    [:unix, :linux]
   end
 
 

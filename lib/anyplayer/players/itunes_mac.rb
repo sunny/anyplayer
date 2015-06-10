@@ -58,6 +58,11 @@ class Anyplayer::ItunesMac < Anyplayer::Player
     "iTunes Mac"
   end
 
+  def platforms
+    [:mac]
+  end
+
+
   private
 
   def itunes(command)

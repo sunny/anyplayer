@@ -58,6 +58,10 @@ class Anyplayer::RdioMac < Anyplayer::Player
     "Rdio Mac"
   end
 
+  def platforms
+    [:mac]
+  end
+
 
   private
 

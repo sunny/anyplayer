@@ -70,6 +70,11 @@ class Anyplayer::Player
     reset_votes
   end
 
+  # Operating systems where this player should work
+  def platforms
+    [:mac, :windows, :linux, :unix]
+  end
+
 
   private
 
