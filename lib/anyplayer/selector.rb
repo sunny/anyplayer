@@ -25,8 +25,11 @@ module Anyplayer
         player_load(player) or next
 
         instance = player_class(player).new
-        instance.platforms.include?(platform) or next
-        return instance if player_launched(instance)
+        player_on_platform?(instance) or next
+
+        if player_launched?(instance)
+          return instance
+        end
       end
       nil
     end
@@ -54,15 +57,22 @@ module Anyplayer
     end
 
     def player_load(player)
+      log "#{player}:"
       begin
         require "anyplayer/players/#{player}"
-        $stderr.puts "Loaded #{player}" if verbose
+        log "  loaded"
         true
       rescue LoadError => e
-        $stderr.puts "Could not load #{player}" if verbose
+        log "  #{e.message}"
         @errors << "Error loading #{player}: #{e.message}"
         false
       end
+    end
+
+    def player_on_platform?(player)
+      result = player.platforms.include?(platform)
+      log "  not on platform" if !result
+      result
     end
 
     def player_class(player)
@@ -70,16 +80,22 @@ module Anyplayer
       Anyplayer::const_get(camelized)
     end
 
-    def player_launched(player)
-      $stderr.puts "#{player.name} launched?" if verbose
-
+    def player_launched?(player)
       seconds = 5
       begin
-        Timeout::timeout(seconds) { player.launched? }
+        Timeout::timeout(seconds) do
+          launched = player.launched?
+          log launched ? "  launched" : "  not launched"
+          launched
+        end
       rescue Timeout::Error
-        $stderr.puts "Timed out after #{seconds} seconds" if verbose
+        log "  timed out after #{seconds} seconds"
         false
       end
+    end
+
+    def log(text)
+      $stderr.puts text if verbose
     end
   end
 end
