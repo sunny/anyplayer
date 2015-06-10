@@ -1,7 +1,7 @@
 begin
   require 'win32ole'
 rescue LoadError => e
-  raise LoadError.new("#{e.message} — You probably aren't on Windows")
+  raise LoadError.new("#{e.message} - You probably aren't on Windows")
 end
 
 class Anyplayer::ItunesWindows < Anyplayer::Player
