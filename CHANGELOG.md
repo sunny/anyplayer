@@ -3,6 +3,13 @@ Changelog
 
 Anyplayer tries its best to follow Semantic Versioning.
 
+## v1.1.5 (2014-07-07)
+
+Bugfixes:
+
+- Better platform detection by letting players list the platforms
+  they are intended to work on.
+
 ## v1.1.4 (2014-07-07)
 
 Bugfixes:
