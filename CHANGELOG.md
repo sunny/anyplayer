@@ -8,7 +8,7 @@ Anyplayer tries its best to follow Semantic Versioning.
 Bugfixes:
 
 - Better platform detection by letting players list the platforms
-  they are intended to work on.
+  they are intended to work on (thanks @inspire22)
 
 ## v1.1.4 (2014-07-07)
 
