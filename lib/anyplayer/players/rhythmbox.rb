@@ -49,6 +49,7 @@ class Anyplayer::Rhythmbox < Anyplayer::Player
     %x(rhythmbox-client --no-start --print-playing 2>/dev/null).rstrip != ""
   end
 
+
   private
 
   def rhythmbox(command)

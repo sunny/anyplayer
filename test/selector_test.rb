@@ -19,7 +19,7 @@ class AnyplayerTest < Minitest::Test
     selector = Selector.new
     selector.verbose = true
 
-    assert_output nil, "Loaded noplayer\nNoplayer launched?\n" do
+    assert_output nil, "noplayer:\n  loaded\n  launched\n" do
       selector.player
     end
   end

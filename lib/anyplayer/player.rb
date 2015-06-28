@@ -1,4 +1,4 @@
-# Default Player class that is inherrited by all players.
+# Default Player class that is inherited by all players.
 #
 # All players should override these methods:
 #   launched? (return bool)
@@ -68,6 +68,11 @@ class Anyplayer::Player
   # This resets the votes, so be sur eto call super in children
   def prev
     reset_votes
+  end
+
+  # Operating systems where this player should work
+  def platforms
+    [:mac, :windows, :linux, :unix]
   end
 
 

@@ -58,6 +58,10 @@ class Anyplayer::SpotifyMac < Anyplayer::Player
     "Spotify Mac"
   end
 
+  def platforms
+    [:mac]
+  end
+
 
   private
 

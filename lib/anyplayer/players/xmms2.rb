@@ -64,6 +64,10 @@ class Anyplayer::Xmms2 < Anyplayer::Player
     ENV['XMMS_PATH'] || super
   end
 
+  def platforms
+    [:unix, :linux]
+  end
+
 
   private
 
