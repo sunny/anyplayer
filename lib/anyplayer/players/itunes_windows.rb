@@ -1,5 +1,5 @@
 begin
-  require 'win32ole'
+  require "win32ole"
 rescue LoadError => e
   raise LoadError.new("#{e.message} - You probably aren't on Windows")
 end
@@ -63,11 +63,9 @@ class Anyplayer::ItunesWindows < Anyplayer::Player
     [:windows]
   end
 
-
   private
 
   def itunes
     itunes ||= WIN32OLE.new("iTunes.Application")
   end
 end
-

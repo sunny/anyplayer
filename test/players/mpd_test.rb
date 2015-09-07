@@ -7,7 +7,7 @@ class MpdTest < Minitest::Test
 
   def setup
     @mpd_instance_mock = flexmock("mpd")
-    flexmock(MPD, "MPD", :new => @mpd_instance_mock)
+    flexmock(MPD, "MPD", new: @mpd_instance_mock)
   end
 
   def test_uses_ruby_mpd_gem

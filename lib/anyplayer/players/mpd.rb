@@ -1,6 +1,6 @@
 # encoding: utf-8
 begin
-  require 'ruby-mpd'
+  require "ruby-mpd"
 rescue LoadError => e
   raise LoadError.new "#{e.message} — Please install the ruby-mpd gem"
 end
@@ -66,9 +66,8 @@ class Anyplayer::Mpd < Anyplayer::Player
   end
 
   def host
-    ENV['MPD_HOST'] || super
+    ENV["MPD_HOST"] || super
   end
-
 
   private
 
@@ -84,4 +83,3 @@ class Anyplayer::Mpd < Anyplayer::Player
     @mpc
   end
 end
-

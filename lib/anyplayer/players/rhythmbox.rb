@@ -1,54 +1,53 @@
 class Anyplayer::Rhythmbox < Anyplayer::Player
   def playpause
-    rhythmbox 'play-pause'
+    rhythmbox "play-pause"
   end
 
   def play
-    rhythmbox 'play'
+    rhythmbox "play"
   end
 
   def pause
-    rhythmbox 'pause'
+    rhythmbox "pause"
   end
 
   def prev
-    rhythmbox 'previous'
+    rhythmbox "previous"
     super
   end
 
   def next
-    rhythmbox 'next'
+    rhythmbox "next"
     super
   end
 
   def voldown
-    rhythmbox 'volume-down'
+    rhythmbox "volume-down"
   end
 
   def volup
-    rhythmbox 'volume-up'
+    rhythmbox "volume-up"
   end
 
   def volume
-    rhythmbox 'print-volume'
+    rhythmbox "print-volume"
   end
 
   def track
-    rhythmbox 'print-playing-format=%tt'
+    rhythmbox "print-playing-format=%tt"
   end
 
   def artist
-    rhythmbox 'print-playing-format=%ta'
+    rhythmbox "print-playing-format=%ta"
   end
 
   def album
-    rhythmbox 'print-playing-format=%at'
+    rhythmbox "print-playing-format=%at"
   end
 
   def launched?
     %x(rhythmbox-client --no-start --print-playing 2>/dev/null).rstrip != ""
   end
-
 
   private
 
@@ -56,4 +55,3 @@ class Anyplayer::Rhythmbox < Anyplayer::Player
     %x(rhythmbox-client --no-start --#{command}).rstrip
   end
 end
-

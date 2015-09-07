@@ -43,4 +43,3 @@ class Anyplayer::Noplayer < Anyplayer::Player
     true
   end
 end
-
