@@ -45,7 +45,6 @@ module Anyplayer::CommandLine
     end
   end
 
-
   private
 
   # Call

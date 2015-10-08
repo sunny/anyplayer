@@ -1,6 +1,7 @@
 require "rbconfig"
 
-# The Selector is the tool that will find you the currently running player on your platform
+# The Selector is the tool that will find you the currently running player
+# on your platform.
 #
 # Example:
 #
@@ -22,18 +23,15 @@ module Anyplayer
     # Returns an instance of the first music player that's launched
     def player
       PLAYERS.each do |player|
-        player_load(player) or next
+        player_load(player) || next
 
         instance = player_class(player).new
-        player_on_platform?(instance) or next
+        player_on_platform?(instance) || next
 
-        if player_launched?(instance)
-          return instance
-        end
+        return instance if player_launched?(instance)
       end
       nil
     end
-
 
     private
 
@@ -71,19 +69,19 @@ module Anyplayer
 
     def player_on_platform?(player)
       result = player.platforms.include?(platform)
-      log "  not on platform" if !result
+      log "  not on platform" unless result
       result
     end
 
     def player_class(player)
-      camelized = player.to_s.split(/_/).map{ |word| word.capitalize }.join
-      Anyplayer::const_get(camelized)
+      camelized = player.to_s.split(/_/).map(&:capitalize).join
+      Anyplayer.const_get(camelized)
     end
 
     def player_launched?(player)
       seconds = 5
       begin
-        Timeout::timeout(seconds) do
+        Timeout.timeout(seconds) do
           launched = player.launched?
           log launched ? "  launched" : "  not launched"
           launched

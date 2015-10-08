@@ -31,7 +31,7 @@ class Anyplayer::Player
   # Example:
   #     player.name # => iTunes
   def name
-    self.class.to_s.gsub(/^.*::/, '')
+    self.class.to_s.gsub(/^.*::/, "")
   end
 
   # Default paused is not playing
@@ -75,12 +75,9 @@ class Anyplayer::Player
     [:mac, :windows, :linux, :unix]
   end
 
-
   private
 
   def reset_votes
     @votes = 0
   end
-
 end
-

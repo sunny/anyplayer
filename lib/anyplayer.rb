@@ -27,4 +27,3 @@ end
 require "anyplayer/player"
 require "anyplayer/selector"
 require "anyplayer/version"
-

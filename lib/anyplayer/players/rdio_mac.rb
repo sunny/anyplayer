@@ -1,52 +1,52 @@
 class Anyplayer::RdioMac < Anyplayer::Player
   def play
-    rdio 'play'
+    rdio "play"
   end
 
   def pause
-    rdio 'pause'
+    rdio "pause"
   end
 
   def playpause
-    rdio 'playpause'
+    rdio "playpause"
   end
 
   def prev
-    rdio 'previous track'
+    rdio "previous track"
     super
   end
 
   def next
-    rdio 'next track'
+    rdio "next track"
     super
   end
 
   def voldown
-    rdio 'set sound volume to sound volume - 10'
+    rdio "set sound volume to sound volume - 10"
   end
 
   def volup
-    rdio 'set sound volume to sound volume + 10'
+    rdio "set sound volume to sound volume + 10"
   end
 
   def volume
-    rdio 'return sound volume'
+    rdio "return sound volume"
   end
 
   def track
-    rdio 'return name of current track'
+    rdio "return name of current track"
   end
 
   def artist
-    rdio 'return artist of current track'
+    rdio "return artist of current track"
   end
 
   def album
-    rdio 'return album of current track'
+    rdio "return album of current track"
   end
 
   def playing?
-    playing = rdio 'return player state is playing'
+    playing = rdio "return player state is playing"
     playing == "true"
   end
 
@@ -61,7 +61,6 @@ class Anyplayer::RdioMac < Anyplayer::Player
   def platforms
     [:mac]
   end
-
 
   private
 

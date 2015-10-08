@@ -1,23 +1,23 @@
 class Anyplayer::Xmms2 < Anyplayer::Player
   def playpause
-    xmms2 'toggle'
+    xmms2 "toggle"
   end
 
   def play
-    xmms2 'play'
+    xmms2 "play"
   end
 
   def pause
-    xmms2 'pause'
+    xmms2 "pause"
   end
 
   def prev
-    xmms2 'prev'
+    xmms2 "prev"
     super
   end
 
   def next
-    xmms2 'next'
+    xmms2 "next"
     super
   end
 
@@ -31,7 +31,7 @@ class Anyplayer::Xmms2 < Anyplayer::Player
 
   def volume
     # currently just the first (left?) channel
-    xmms2('server volume').split("\n").first.sub(/([^0-9]*)/, '').to_i
+    xmms2("server volume").split("\n").first.sub(/([^0-9]*)/, "").to_i
   end
 
   def track
@@ -61,13 +61,12 @@ class Anyplayer::Xmms2 < Anyplayer::Player
   end
 
   def host
-    ENV['XMMS_PATH'] || super
+    ENV["XMMS_PATH"] || super
   end
 
   def platforms
     [:unix, :linux]
   end
-
 
   private
 
@@ -78,12 +77,11 @@ class Anyplayer::Xmms2 < Anyplayer::Player
 
   def set_volume(num)
     num = if num < 0
-      0
-    elsif num > 100
-      100
-    end
+            0
+          elsif num > 100
+            100
+          end
 
     xmms2 "server volume #{num}"
   end
 end
-

@@ -7,7 +7,6 @@ class PlayerTest < Minitest::Test
     @player = Noplayer.new
   end
 
-
   # Default name
 
   def test_default_name
@@ -18,7 +17,6 @@ class PlayerTest < Minitest::Test
     flexmock(@player).should_receive(:class).and_return("Foo::Bar")
     assert_equal "Bar", @player.name
   end
-
 
   # Default paused?
 
@@ -31,7 +29,6 @@ class PlayerTest < Minitest::Test
     flexmock(@player).should_receive(:playing?).once.and_return(true)
     assert !@player.paused?
   end
-
 
   # Default playpause
 
@@ -49,7 +46,6 @@ class PlayerTest < Minitest::Test
     @player.playpause
   end
 
-
   # Votes
 
   def test_votes
@@ -61,7 +57,7 @@ class PlayerTest < Minitest::Test
         assert_equal @player.votes, 0
       else
         assert_equal @player.votes, i + 1
-     end
+      end
     end
   end
 
@@ -90,8 +86,7 @@ class PlayerTest < Minitest::Test
         assert_equal @player.votes, 0
       else
         assert_equal @player.votes, i + 1
-     end
+      end
     end
   end
-
 end

@@ -40,7 +40,6 @@ Player connected: Fake Player.
     Anyplayer::CommandLine.parse(%w(-v play))
   end
 
-
   # Actions
 
   def test_playpause
@@ -113,38 +112,40 @@ Player connected: Fake Player.
     Anyplayer::CommandLine.parse(%w(name))
   end
 
-
   # Booleans
 
   def test_launched_true
-    flexmock(Anyplayer::CommandLine).should_receive(:exit)#.with(1)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit) # .with(1)
     flexmock(@player).should_receive(:launched?).once.and_return(true)
     Anyplayer::CommandLine.parse(%w(launched))
   end
+
   def test_launched_false
-    flexmock(Anyplayer::CommandLine).should_receive(:exit)#.with(0)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit) # .with(0)
     flexmock(@player).should_receive(:launched?).once.and_return(false)
     Anyplayer::CommandLine.parse(%w(launched))
   end
 
   def test_playing_true
-    flexmock(Anyplayer::CommandLine).should_receive(:exit).once#.with(1)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit).once # .with(1)
     flexmock(@player).should_receive(:playing?).once.and_return(true)
     Anyplayer::CommandLine.parse(%w(playing))
   end
+
   def test_playing_false
-    flexmock(Anyplayer::CommandLine).should_receive(:exit).once#.with(0)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit).once # .with(0)
     flexmock(@player).should_receive(:playing?).once.and_return(false)
     Anyplayer::CommandLine.parse(%w(playing))
   end
 
   def test_paused_true
-    flexmock(Anyplayer::CommandLine).should_receive(:exit).once#.with(1)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit).once # .with(1)
     flexmock(@player).should_receive(:paused?).once.and_return(true)
     Anyplayer::CommandLine.parse(%w(paused))
   end
+
   def test_paused_false
-    flexmock(Anyplayer::CommandLine).should_receive(:exit).once#.with(0)
+    flexmock(Anyplayer::CommandLine).should_receive(:exit).once # .with(0)
     flexmock(@player).should_receive(:paused?).once.and_return(false)
     Anyplayer::CommandLine.parse(%w(paused))
   end

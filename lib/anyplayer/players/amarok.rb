@@ -1,48 +1,48 @@
 class Anyplayer::Amarok < Anyplayer::Player
   def playpause
-    amarok 'PlayPause'
+    amarok "PlayPause"
   end
 
   def play
-    amarok 'Play'
+    amarok "Play"
   end
 
   def pause
-    amarok 'Pause'
+    amarok "Pause"
   end
 
   def prev
-    amarok 'Prev'
+    amarok "Prev"
     super
   end
 
   def next
-    amarok 'Next'
+    amarok "Next"
     super
   end
 
   def voldown
-    amarok 'VolumeDown 5'
+    amarok "VolumeDown 5"
   end
 
   def volup
-    amarok 'VolumeUp 5'
+    amarok "VolumeUp 5"
   end
 
   def volume
-    amarok 'VolumeGet'
+    amarok "VolumeGet"
   end
 
   def track
-    amarok_get_meta 'title'
+    amarok_get_meta "title"
   end
 
   def artist
-    amarok_get_meta 'artist'
+    amarok_get_meta "artist"
   end
 
   def album
-    amarok_get_meta 'album'
+    amarok_get_meta "album"
   end
 
   def launched?
@@ -55,7 +55,6 @@ class Anyplayer::Amarok < Anyplayer::Player
     [:unix, :linux]
   end
 
-
   private
 
   def amarok(command)
@@ -63,7 +62,6 @@ class Anyplayer::Amarok < Anyplayer::Player
   end
 
   def amarok_get_meta(name)
-    amarok('GetMetadata').match(/#{name}: (\S.*)/)[1] rescue nil
+    amarok("GetMetadata").match(/#{name}: (\S.*)/)[1] rescue nil
   end
 end
-
