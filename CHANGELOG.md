@@ -46,3 +46,19 @@ Features:
 ## v1.0.0 (2013-07-26)
 
 First major release.
+
+## v0.0.4
+
+Unstable version.
+
+## v0.0.3
+
+Unstable version.
+
+## v0.0.2
+
+Unstable version.
+
+## v0.0.1
+
+Unstable version.
