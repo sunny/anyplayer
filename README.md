@@ -43,8 +43,17 @@ a player is running
 Or in Ruby
 ----------
 
+In your Gemfile:
+
+```rb
+# Interact with the current music player
+gem "anyplayer"
+```
+
+In your code:
+
 ```ruby
-require 'anyplayer'
+require "anyplayer"
 player = Anyplayer::Selector.new.player
 
 player.launched? # => true
