@@ -3,6 +3,10 @@ Changelog
 
 Anyplayer tries its best to follow Semantic Versioning.
 
+## Unreleased
+
+- Drop Ruby 1.9.3 and 2.0.0 support.
+
 ## v1.1.5 (2014-07-07)
 
 Bugfixes:
