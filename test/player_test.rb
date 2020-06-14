@@ -1,8 +1,6 @@
 require "test_helper"
 
 class PlayerTest < Minitest::Test
-  include FlexMock::TestCase
-
   def setup
     @player = Noplayer.new
   end

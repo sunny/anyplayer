@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require "flexmock/test_unit"
+require "flexmock/minitest"
 require "anyplayer"
 
 require "anyplayer/players/noplayer"

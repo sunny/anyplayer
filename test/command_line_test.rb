@@ -2,8 +2,6 @@ require "test_helper"
 require "anyplayer/command_line"
 
 class CommandLineTest < Minitest::Test
-  include FlexMock::TestCase
-
   USAGE = "Usage: anyplayer [-v] [command]
 
 Where command is one of: playpause, play, pause, next, prev, voldown, volup, volume, track, artist, album, vote, name, launched, paused, playing.

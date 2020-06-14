@@ -3,8 +3,6 @@ require "ruby-mpd"
 require "anyplayer/players/mpd"
 
 class MpdTest < Minitest::Test
-  include FlexMock::TestCase
-
   def setup
     @mpd_instance_mock = flexmock("mpd")
     flexmock(MPD, "MPD", new: @mpd_instance_mock)
