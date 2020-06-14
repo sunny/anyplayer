@@ -80,9 +80,9 @@ Here a few useful commands while developping:
 
 ```sh
 $ ruby -Ilib bin/anyplayer  # Use the anyplayer command-line from source
-$ bundle exec rake test     # Launch tests
-$ bundle exec rake install  # Install from source
-$ bundle exec rake console  # Launch console
+$ bin/rake test             # Launch tests
+$ bin/rake install          # Install from source
+$ bin/rake console          # Launch console
 ```
 
 
