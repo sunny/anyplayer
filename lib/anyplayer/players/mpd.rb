@@ -50,15 +50,18 @@ class Anyplayer::Mpd < Anyplayer::Player
   end
 
   def track
-    mpc.current_song && mpc.current_song.title
+    song = current_song
+    return unless song
+
+    song.title || File.basename(song.file)
   end
 
   def artist
-    mpc.current_song && mpc.current_song.artist
+    current_song&.artist
   end
 
   def album
-    mpc.current_song && mpc.current_song.album
+    current_song&.album
   end
 
   def launched?
@@ -70,6 +73,10 @@ class Anyplayer::Mpd < Anyplayer::Player
   end
 
   private
+
+  def current_song
+    mpc.current_song
+  end
 
   def connect
     @mpc ||= MPD.new
