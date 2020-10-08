@@ -5,6 +5,12 @@ Anyplayer tries its best to follow Semantic Versioning.
 
 ## Unreleased
 
+Features:
+
+- When using mpd, fallback to the file name if there is no track name.
+
+Dependencies:
+
 - Drop Ruby 1.9.3 and 2.0.0 support.
 
 ## v1.1.5 (2014-07-07)
