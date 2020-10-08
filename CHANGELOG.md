@@ -5,6 +5,8 @@ Anyplayer tries its best to follow Semantic Versioning.
 
 ## Unreleased
 
+## v1.2.0 (2020-10-08)
+
 Features:
 
 - When using mpd, fallback to the file name if there is no track name.
