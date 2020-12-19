@@ -5,6 +5,10 @@ Anyplayer tries its best to follow Semantic Versioning.
 
 ## Unreleased
 
+Fixes:
+
+- Remove rake executable in gemspec.
+
 ## v1.2.0 (2020-10-08)
 
 Features:
