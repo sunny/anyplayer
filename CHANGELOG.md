@@ -5,6 +5,8 @@ Anyplayer tries its best to follow Semantic Versioning.
 
 ## Unreleased
 
+## v1.2.1 (2020-12-19)
+
 Fixes:
 
 - Remove rake executable in gemspec.
