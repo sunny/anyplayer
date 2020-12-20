@@ -16,7 +16,7 @@
 #   playing?  (return bool)
 #   paused?   (return bool)
 class Anyplayer::Player
-  DEFAULT_VOTES_TO_SKIP = 5
+  DEFAULT_VOTES_TO_SKIP = ENV.fetch("ANYPLAYER_VOTES_TO_SKIP", 5).to_i
 
   def initialize
     @votes = 0
